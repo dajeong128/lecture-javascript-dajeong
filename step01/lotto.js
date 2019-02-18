@@ -47,10 +47,19 @@ const buyLottos = () => {
             console.log(array[i]);
 
             /*당첨된 로또 확인*/
-            for (let i =0; i<array[i].length; i++) {
-                if (setLuckyNumbers[i] === array[i]) {
-                    
-                }
+            const winThree;
+            const winFour;
+            const winFive;
+            const winSix;
+            const winCheck = array.filter(array => array[i]=== setLuckyNumbers)
+            if (winCheck === 6) {
+                winSix.push(array)
+            } else if (winCheck === 5) {
+                winFive.push(array)
+            } else if (winCheck === 4) {
+                winFour.push(array)
+            } else if (winCheck === 3) {
+                winThree.push(array)
             }
             
         }
@@ -58,10 +67,10 @@ const buyLottos = () => {
         console.log(">setLuckyNumbers([" + setLuckyNumbers + ")]")
         console.log(">당첨통계")
         console.log("————")
-        console.log(`3개 일치 (5000원)- ${당첨수량}개`)
-        console.log(`4개 일치 (50000원)- ${당첨수량}개`)
-        console.log(`5개 일치 (1500000원)- ${당첨수량}개`)
-        console.log(`6개 일치 (2000000000원)- ${당첨수량}개`)
+        console.log(`3개 일치 (5000원)- ${winThree.length}개`)
+        console.log(`4개 일치 (50000원)- ${winFour.length}개`)
+        console.log(`5개 일치 (1500000원)- ${winFive.length}개`)
+        console.log(`6개 일치 (2000000000원)- ${winSix.length}개`)
 
 
     }
