@@ -1,7 +1,6 @@
 const buyLottos = () => {
 
     const budget = 7000;
-    const setLuckyNumbers = ([1, 2, 3, 4, 5, 6]);
 
     /*예산만큼 발행할 수 있는 로또수*/
     if (budget >= 1000) {
@@ -40,28 +39,30 @@ const buyLottos = () => {
         console.log(">buyLottos(" + budget + ")")
         console.log(`>로또 ${lottoQuantity} 개를 발행했습니다.`)
 
-        
         /*출력-최종발행번호*/
         const array = a.division(6);
         for(let i = 0; i<buyLotto; i++) {
             console.log(array[i]);
+        }
 
+        for(let i = 0; i<buyLotto; i++) {
             /*당첨된 로또 확인*/
-            const winThree;
-            const winFour;
-            const winFive;
-            const winSix;
-            const winCheck = array.filter(array => array[i]=== setLuckyNumbers)
-            if (winCheck === 6) {
-                winSix.push(array)
-            } else if (winCheck === 5) {
-                winFive.push(array)
-            } else if (winCheck === 4) {
-                winFour.push(array)
-            } else if (winCheck === 3) {
+            const winThree=[];
+            const winFour=[];
+            const winFive=[];
+            const winSix=[];
+            var setLuckyNumbers = ([35, 32, 33, 34, 35, 36]);
+            const winCheck = setLuckyNumbers.filter(arr => arr === array)
+            console.log(winCheck);
+            if (winCheck >= 6) {
+                winSix.push(array[i])
+            } else if (winCheck >= 5) {
+                winFive.push(array[i])
+            } else if (winCheck >= 4) {
+                winFour.push(array[i])
+            } else if (winCheck >= 3) {
                 winThree.push(array)
             }
-            
         }
         /*출력-당첨 로또수*/
         console.log(">setLuckyNumbers([" + setLuckyNumbers + ")]")
@@ -71,11 +72,7 @@ const buyLottos = () => {
         console.log(`4개 일치 (50000원)- ${winFour.length}개`)
         console.log(`5개 일치 (1500000원)- ${winFive.length}개`)
         console.log(`6개 일치 (2000000000원)- ${winSix.length}개`)
-
-
     }
-
-
 }
 
 buyLottos();
