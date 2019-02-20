@@ -19,21 +19,19 @@ const buyLottos = () => {
                 }
             })
 
-
-
         /*발행번호 6개씩 배열나누기*/
         Array.prototype.division = function (n) {
-            var arr = this;
-            var len = arr.length;
-            var cnt = Math.floor(len / n) + (Math.floor(len % n) > 0 ? 1 : 0);
-            var tmp = [];
+            const arr = this;
+            const len = arr.length;
+            const cnt = Math.floor(len / n) + (Math.floor(len % n) > 0 ? 1 : 0);
+            const tmp = [];
 
-            for (var i = 0; i < cnt; i++) {
+            for (let i = 0; i < cnt; i++) {
                 tmp.push(arr.splice(0, n));
             }
             return tmp;
         }
-        var a = lottoNumbers;
+        const a = lottoNumbers;
         const lottoQuantity = parseInt(lottoNumbers.length / 6);
         // console.log(lottoQuantity)
 
