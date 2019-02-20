@@ -6,19 +6,20 @@ const buyLottos = () => {
     if (budget >= 1000) {
         const lottoAmount = parseInt(budget / 1000)
 
-        const lottoNumbers = new Array();
+        const lottoNumbers = [];
 
         /*발행 할 수 있는만큼 랜덤 로또 번호발행*/
-        for (let i = 0; i < lottoAmount; i++) {
-
-            /*로또 발행번호 중복체크*/
-            for (let l = 0; l < 6; l++) {
-                const result = Math.floor(Math.random() * 45) + 1;
-                if (result !== lottoNumbers[l]) {
-                    lottoNumbers.push(result);
+            buyLotto.forEach(function(){
+                /*로또 발행번호 중복체크*/
+                for (let l = 0; l < 6; l++) {
+                    const result = Math.floor(Math.random() * 45) + 1;
+                    if (result !== lottoNumbers[l]) {
+                        lottoNumbers.push(result);
+                    }
                 }
-            }
-        }
+            })
+
+
 
         /*발행번호 6개씩 배열나누기*/
         Array.prototype.division = function (n) {
